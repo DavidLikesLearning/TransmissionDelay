@@ -254,9 +254,9 @@ def ACDC_TEP_OPF(gen_capacity = {1:100,2:100,3:0,4:0,5:100, 6:0, 7:0}, line_capa
     
     
     # but DC flows freely :) as the breathed wind o'er the lush forests
-    
+    slack_gen = np.min(list(generation_cost.keys()))
     # 4. Set reference bus phase to 0
-    prob += (phase[1] == 0, "Reference_Bus_phase")
+    prob += (phase[slack_gen] ==0 , "Reference_Bus_phase")
     prob += (lpSum(new_line[(i,j)] for i,j in poss_ac_lines) <= max_new_ac, 'max_AC_line')
     prob += (lpSum(new_dc_line[(i,j)] for i,j in poss_dc_lines) <= max_new_dc, 'max_DC_line')
     # Solve the problem
@@ -304,7 +304,7 @@ def ACDC_TEP_OPF(gen_capacity = {1:100,2:100,3:0,4:0,5:100, 6:0, 7:0}, line_capa
             print("\nDC Line Flows:")
             for i, j in dc_lines + poss_dc_lines:
                 print(f"Line {i}-{j}: {dc_flow[i, j].varValue} MW")
-        if max_new_dc + max_new_ac == 0:
+        if max_new_dc + max_new_ac != 0:
             print("\nNew AC Line Decisions:")
             for i, j in poss_ac_lines:
                 print(f"Line {i}-{j}: {'Added' if new_line[i, j].varValue > 0.5 else 'Not Added'}")
@@ -320,4 +320,4 @@ def ACDC_TEP_OPF(gen_capacity = {1:100,2:100,3:0,4:0,5:100, 6:0, 7:0}, line_capa
        'ac_flow':{i:flow[i].varValue for i in flow}, 'dc_flow':{i:dc_flow[i].varValue for i in dc_flow},
        'new_line':{i:new_line[i].varValue for i in new_line}, 
         'new_dc_line': {i:new_dc_line[i].varValue for i in new_dc_line} }
-    return prob
+    return all_out, prob
