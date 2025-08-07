@@ -1,0 +1,40 @@
+2025 07 01 1am
+
+cleaned up the grifflowsmooth read raw code from the optimal new line in Electrical-grid-expansion-using-AI
+DC cost bias notebook has running models on DC over AC, per generation cost savings when capacity forces
+susceptance constraint. unclear difference between gridflowsmooth,py in transmission delay and Electrica-grid-expansion-AI
+
+made two heatmaps of various load and capacities in simple triangle grid on DC benefit based on cost
+
+2025 06 27 11pm
+
+KY pretty cute, CA, AZ, NM, CO, KS, IL, IN were alright. I believe this is the less advanced gridFlowSmooth.
+it seems we have `max_new` variables governing what lines can be built. we have parallel lines and various generation costs and line capacities and the cost of new lines
+
+also RIP most of late may and early june spent on searching for DC superiority in cases with unlimited capacity...
+it's capacity limits that force phase constraints to actiavate
+
+
+2025 05 17 1AM
+
+parallel & DC bias ipynb
+
+parallel lines work, we can ask for max k lines built in ac + dc, describe the minimal susceptance for to satisfy a path in ac lines
+
+we use this to push ac to bounds, dc saves the day, begin thinking of multiple generators
+
+2025 05 15 11PM
+
+lol we be steady w the late night. idiot.
+
+can load excel file through pandas. now developing parallel line code for opf in transmission delay in GridFlowSmooth
+
+testingParallel notebook. hope to generate data
+
+2025 04 16 11PM
+
+pizza w homies :)
+gurobipy Module not found/ installed? requirement already satisfied?
+gurobi license secured
+our DCTEP model has more flows because we include poss_ac_flow
+

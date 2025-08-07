@@ -1,0 +1,6 @@
+Assume a 1000MW wind farm Midwest capacity factor of 0.4, 50 km from a load (or a grid connection) that will be completed in four years. 
+ overhead HVAC line or a buried HVDC cable at the costs/km that you find 
+ To simplify things, assume that construction is 4 years. 
+ HVDC starts now and p=1. 
+ Delay AC for D = [1, . 3; 5; 10] years and that after waiting that long and starting construction, the probability of successfully completing the overhead line is p = [1; 0.8; 0.5].
+secure a 15 year firm contract to sell the power at C=$X/MWhr, where C is [60, 80, 100] So, the initial basic problem involves 3 uncertain parameters: D, p and C. Report the combinations of the values of those three parameters (if any) for which, in terms of expected value, the operator should choose the HVDC cable. 
